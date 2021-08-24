@@ -13,8 +13,7 @@ fi
 
 grep -q 'install_requires=INSTALL_REQUIRES' setup.py
 output=$?
-
-if [ $output = 1 ]
+if [[ ! -n $output ]]
 then 
     echo "This project does not use the install_requires hook...moving on"
     exit 0 
@@ -22,8 +21,7 @@ fi
 
 grep -q 'setup_install_requirements.py' setup.py
 output=$?
-
-if [ $output = 1 ]
+if [[ ! -n $output ]]
 then 
     echo "This project does not use the install_requires hook...moving on"
     exit 0
@@ -32,8 +30,7 @@ fi
 # If we get here, it's safe to proceed
 python setup.py requirements 
 output=$?
-
-if [ $output = 0]
+if [[ ! -n $output ]]
 then 
     exit 0
 else
