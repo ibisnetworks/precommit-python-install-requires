@@ -1,0 +1,7 @@
+- id: update-install-requires
+  name: update-install-requires
+  entry: update-install-requires.sh
+  language: script 
+  always_run: true
+  description: Runs python setup.py requirements if that custom command exists in setup.py for a project, to update dependencies for installation
+  
